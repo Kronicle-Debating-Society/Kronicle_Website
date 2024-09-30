@@ -1,0 +1,305 @@
+/* Body styling */
+body {
+    background-color: #f8fafc;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for the slider */
+.container {
+    padding: 0;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+}
+
+.slider img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    width: 100vw;
+    height: 80vh;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+/* About Section Styling */
+.about-section {
+    background-color: black;
+    color: white;
+    padding: 40px;
+}
+
+/* About title aligned to the left with padding */
+.about-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+    padding-left: 110px;
+}
+
+/* Layered box containing dark grey and light grey shapes */
+.layered-box {
+    position: relative;
+    width: 900px;
+    height: 340px;
+    margin: 0 auto;
+    background-color: lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+/* Dark grey rectangle on the left */
+.dark-grey-rectangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background-color: darkgrey;
+}
+
+/* Light grey content box */
+.light-grey-content {
+    width: 85%;
+    background-color: lightgrey;
+    padding: 20px;
+    color: black;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.light-grey-content p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* New Image layering with reduced bottom gap */
+.podium-image {
+    position: absolute;
+    left: -150px; /* Align it to the left with padding */
+    top: 125px; /* Adjusted top to reduce the gap */
+    z-index: 2; /* Ensures it layers on top of the shapes */
+    width: 300px; /* Maintained increased size */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+/* Styling for the image row below the shapes */
+.image-row {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    align-items: center;
+    gap: 300px; /* Space between the images */
+    padding-bottom: 30px; /* Extra padding for bottom space */
+    background-color: black;
+}
+
+.image-row img {
+    width: 100px; /* Adjust size of the logos */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image fits without distortion */
+}
+
+/* Extra black space after logos */
+.extra-space {
+    background-color: black;
+    padding: 50px 0; /* Extra padding for vertical space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Glassmorphism section */
+.glassmorphism-box {
+    width: 1000px;
+    height: auto; /* Adjusted to auto for dynamic height based on content */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    position: relative;
+    padding: 40px 20px; /* Padding for inner spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Centered title inside the glassmorphism box */
+.glass-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px; /* Added margin below the title */
+    text-align: center;
+}
+
+/* Cards container to align them horizontally */
+.cards-container {
+    display: flex;
+    justify-content: space-around; /* Distribute space between cards */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Base card styling */
+.base-card {
+    position: relative;
+    width: 304.82px;
+    height: 360.66px;
+    background-color: #d4d4d4; /* Neon grey color */
+    z-index: 1;
+    border-radius: 20px; /* Curved corners */
+    box-shadow: 0 0 20px rgba(211, 211, 211, 0.8); /* Neon-like glow effect */
+}
+
+/* Image styling for lower-right placement */
+.card-image {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    opacity: 30%;
+    width: 250px; /* Adjust based on the desired size */
+    z-index: 7; /* Higher than black-card */
+}
+
+/* Image layer */
+.layered-image {
+    position: absolute; /* Layer it on top */
+    top: 30px; /* Distance from top */
+    left: 80px; /* Distance from left */
+    width: 150px; /* Control image width */
+    height: auto; /* Maintain aspect ratio */
+    z-index: 10; /* Ensure the image stays on top */
+    border-radius: 15px; /* Curved corners (adjust size as needed) */
+}
+
+.black-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 296.18px;
+    height: 344.1px;
+    background-color: black;
+    z-index: 2; /* Below image and strips */
+    border-radius: 15px; /* Curved corners */
+}
+
+.black-strip {
+    position: absolute;
+    width: 20px;
+    height: 237.61px;
+    background-color: black;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4; /* Above black card */
+}
+
+.black-strip.left {
+    left: 0;
+}
+
+.black-strip.right {
+    right: 0;
+}
+
+/* Shape at the top of each black strip */
+.grey-shape {
+    position: absolute;
+    width: 4.5px;
+    height: 9.55px;
+    background-color: #d4d4d4; /* Neon grey color */
+    border-top-left-radius: 10px; /* Rounded top corners */
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 5; /* Above the strips */
+}
+
+.grey-shape.left {
+    top: -8px; /* Positioned just above the black strip */
+    left: 0;
+}
+
+.grey-shape.right {
+    top: -8px;
+    right: 0;
+}
+.card-text {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    z-index: 5;
+    position: relative; /* Ensure z-index works */
+}
+
+.card-text h3 {
+    font-size: 1.2rem;
+    margin-top: 250px;
+    margin-bottom: 5px;
+    z-index: 5;
+    position: relative; /* Ensure z-index works */
+}
+
+.card-text p {
+    font-size: 1rem;
+    margin: 0;
+    z-index: 5;
+    color: white;
+    position: relative; /* Ensure z-index works */
+}
+
