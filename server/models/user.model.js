@@ -1,27 +1,38 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+// schema defination and all fileds descibed
+const userSchema = new mongoose.Schema(
+  {
     username: {
-        type:String,
-        required:true,
-    }
-    ,
-    email:{
-        type:String,
-        required:true,
-        unique:true,
-        lowercase:true,
+      type: String,
+      required: true,
     },
-    domain:{
-        type:String,
-        required:true,
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
     },
-    igLink:String,
-    linkedLink:String,
-    githubLink:String,
-    image:{
-
-    }
-},{timestamps:true});
+    domain: {
+      type: String,
+      required: true,
+    },
+    isMember: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+      required: true, 
+    },
+    igLink: String,
+    linkedLink: String,
+    githubLink: String,
+  },
+  { timestamps: true }
+);
 
 export const User = mongoose.model("User", userSchema);
+// exporting schema
