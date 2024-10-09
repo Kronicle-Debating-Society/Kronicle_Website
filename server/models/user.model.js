@@ -25,7 +25,11 @@ const userSchema = new mongoose.Schema(
     isAdmin: {
       type: Boolean,
       default: false,
-      required: true, 
+      required: true,
+    },
+    avatar: {
+      type: String, // cloudinary url
+      required: true,
     },
     igLink: String,
     linkedLink: String,
