@@ -5,7 +5,6 @@
     align-items: center;
     background-color: rgba(51, 51, 51, 0.2); /* Slight transparency */
     padding: 10px 20px;
-    position: fixed;
     top: 0;
     width: 100%;
     max-width: 100vw; /* Ensures the navbar doesn't exceed the viewport width */
@@ -14,12 +13,16 @@
     overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+<<<<<<< HEAD
 /* Prevent the body from causing overflow */
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Disable horizontal scroll */
 }
+=======
+
+>>>>>>> 0bd8b64ee05dfb16cda1fd0fab6a4c1faf0f0328
 
 /* Logo container styling */
 .logo-container {
