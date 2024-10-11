@@ -15,7 +15,7 @@ app.use(
   })
 );
 
-app.use(express.urlencoded({ limit: "16kb" }));
+app.use(express.urlencoded({ limit: "16kb",extended:true }));
 app.use(express.static("public"))
 
 app.use(cookieParser())
@@ -25,5 +25,11 @@ app.get("/", (req, res) => {
   res.send("Hello from the backend team of kronicle debsoc");
 });
 
+//routes import 
+import userRouter from "./routes/user.routes.js"
+
+
+// routes declare
+app.use( "/api/v1/users",userRouter)  // prefix
 
 export { app };
