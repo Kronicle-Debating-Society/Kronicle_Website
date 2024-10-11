@@ -1,3 +1,4 @@
+/* Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -12,18 +13,31 @@
     overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+<<<<<<< HEAD
+/* Prevent the body from causing overflow */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+=======
 
+>>>>>>> 0bd8b64ee05dfb16cda1fd0fab6a4c1faf0f0328
 
+/* Logo container styling */
 .logo-container {
     display: flex;
     align-items: center;
 }
 
+/* Logo Styling - Remove quotes from width */
 .logo {
-    width: 50px;
+    width: 100%; /* Adjust based on your image size */
+    max-width: 150px; /* Set a max-width if needed */
     margin-right: 10px;
 }
 
+/* Nav Links Styling */
 .nav-links {
     list-style-type: none;
     margin: 0;
@@ -31,6 +45,7 @@
     display: flex;
 }
 
+/* Individual Nav Links */
 .nav-links li {
     margin-left: 30px;
 }
@@ -41,6 +56,7 @@
     font-size: 1.2rem;
 }
 
+/* Hover Effect for Nav Links */
 .nav-links li a:hover {
     text-decoration: underline;
 }
