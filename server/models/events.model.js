@@ -1,10 +1,16 @@
 import mongoose from "mongoose";
+import moongooseAgregatePaginate from "mongoose-aggregate-paginate-v2"
+
 
 const eventSchema = new mongoose.Schema(
   {
     title: {
       type: String,
       required: true,
+    },
+    thumbnail:{
+      type:String, // cloudinary url 
+      required: true, 
     },
     description: {
       type: String,
@@ -35,8 +41,14 @@ const eventSchema = new mongoose.Schema(
       enum: ["online", "offline", "hybrid"], // Restrict to these modes
       required: true,
     },
+    regCount:{
+      type:Number,
+      default:0,
+    },
   },
   { timestamps: true }
 );
+
+eventSchema.plugin(moongooseAgregatePaginate)
 
 export const Event = mongoose.model("Event", eventSchema);
