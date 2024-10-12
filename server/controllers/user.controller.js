@@ -5,7 +5,7 @@ import { ApiResponse } from "../utils/apiResponse.js";
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password,profilePic } = req.body;
+  const { name, email, password,profilePic,membertype } = req.body;
 
   // Validate user input
   if (!name || !email || !password) {
@@ -23,7 +23,8 @@ const registerUser = asyncHandler(async (req, res) => {
     name,
     email,
     password, // Assuming hashing is done in the model        
-    name: name.toLowerCase()
+    name: name.toLowerCase(),
+    membertype:membertype
   });
 
   const createdUser = await User.findById(user._id).select(
