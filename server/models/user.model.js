@@ -1,92 +1,101 @@
 import mongoose, { Schema } from "mongoose";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import { Event } from './events.model.js'; // Importing Event model
 
-// schema definition
+// User Schema Definition
 const userSchema = new mongoose.Schema(
   {
-    username: {
+    name: {
       type: String,
       required: true,
-      index: true, // for better searching
+      index: true, // For better searching
     },
     email: {
       type: String,
       required: true,
       unique: true,
       lowercase: true,
+      match: /.+\@.+\..+/ // Basic email validation
     },
     domain: {
       type: String,
-      required: true,
     },
     password: {
       type: String,
-      required: true, // make sure you hash this in the logic
+      required: true,
     },
     refreshToken: {
       type: String,
     },
     membertype: {
-      type: [String], // Array of strings to allow multiple choices
-      enum: ["member", "admin", "core", "coordinators"], // predefined multiple choices for member type
-      default: ["member"], // default option as an array,
-    },
-    isMember: {
-      type: Boolean,
-      default: false,
-      required: true,
+      type: [String],
+      enum: ["user", "member", "admin", "core", "coordinators"],
+      default: ["user"],
     },
     avatar: {
-      type: String, // cloudinary URL
-      required: true,
+      type: String,
+      default: "", // Placeholder for Cloudinary URL or other
     },
     eventHistory: [
       {
         type: Schema.Types.ObjectId,
-        ref: Event,
+        ref: "Event", // Refers to the Event model
       },
     ],
     igLink: String,
     linkedLink: String,
     githubLink: String,
   },
-  { timestamps: true } // taking the timestamps
+  { timestamps: true }
 );
 
-userSchema.pre("save", function (next) {
+// Pre-save middleware for password hashing and default avatar assignment
+userSchema.pre("save", async function (next) {
+  // Hash password if modified
   if (this.isModified("password")) {
-    this.password = bcrypt.hash(this.password, 10);
+    this.password = await bcrypt.hash(this.password, 10);
   }
+
+  // Assign a default avatar if none is provided
+  if (!this.avatar || this.avatar === "") {
+    this.avatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(this.name)}&background=random&length=1`;
+      
+  }
+
   next();
 });
 
-//dont use arrow function because there is no refrence to this present so while using callback over here we use func(){}
-
+// Password comparison method
 userSchema.methods.isPasswordCorrect = async function (password) {
-  return await bcrypt.compare(password, this.password); //boolean return 
+  return await bcrypt.compare(password, this.password);
 };
-userSchema.methods.generateAcessToken=function(
-){
-return  jwt.sign({
-    _id:this._id,
-    email:this.email
-  },
-  process.env.ACCESS_TOKEN_SECRET,
-  {
-    expiresIn:process.env.ACCESS_TOKEN_EXPIRY
-  }
-)
-}
-userSchema.methods.generateRefreshToken=function(){
-  return  jwt.sign({
-    _id:this._id,  
-  },
-  process.env.REFRESH_TOKEN_SECRET,
-  {
-    expiresIn:process.env.REFRESH_TOKEN_EXPIRY
-  }
-)
-}
+
+// Token generation methods
+userSchema.methods.generateAccessToken = function () {
+  return jwt.sign(
+    {
+      _id: this._id,
+      email: this.email,
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    {
+      expiresIn: process.env.ACCESS_TOKEN_EXPIRY,
+    }
+  );
+};
+
+userSchema.methods.generateRefreshToken = function () {
+  return jwt.sign(
+    {
+      _id: this._id,
+    },
+    process.env.REFRESH_TOKEN_SECRET,
+    {
+      expiresIn: process.env.REFRESH_TOKEN_EXPIRY,
+    }
+  );
+};
+
+// Exporting User model
 export const User = mongoose.model("User", userSchema);
-// exporting schema

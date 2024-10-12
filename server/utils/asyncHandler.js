@@ -1,29 +1,20 @@
 const asyncHandler = (fn) => async (req, res, next) => {
   try {
-    await fn(req, res, next);
+      await fn(req, res, next);
   } catch (err) {
-    res.status(err.code || 500).json({
-      success: false,
-      message: err.message,
-    });
-  }                             
-};
+      // Log the entire error object
+      console.error("Error caught in asyncHandler:", err);
 
-export { asyncHandler };
-/* 
-example for how to use this utility 
+      // Ensure err.code is a valid HTTP status code
+      const statusCode = err.code && [200, 201, 400, 401, 404, 500].includes(err.code) ? err.code : 500;
+      console.log("Sending response with status code:", statusCode);
 
-
-
-const getData = async (req, res) => {
-    const result = "Fetched data!";
-    res.json({ success: true, message: result });
+      res.status(statusCode).json({
+          success: false,
+          message: err.message,
+      });
+  }
 };
 
 
-app.get('/get-data', asyncHandler(getData));
-
-
-
-this is just an example this is used to handle all the async funtions
-*/
+export {asyncHandler}
