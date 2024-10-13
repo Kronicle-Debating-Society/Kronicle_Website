@@ -13,16 +13,12 @@
     overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-<<<<<<< HEAD
 /* Prevent the body from causing overflow */
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Disable horizontal scroll */
 }
-=======
-
->>>>>>> 0bd8b64ee05dfb16cda1fd0fab6a4c1faf0f0328
 
 /* Logo container styling */
 .logo-container {
