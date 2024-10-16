@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       lowercase: true,
-      index:true,
+      index: true,
       match: /.+\@.+\..+/ // Basic email validation
     },
     domain: {
@@ -30,9 +30,9 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     membertype: {
-      type: [String],
-      enum: ["user", "member", "admin", "core", "coordinators"],
-      default: ["user"],
+      type: String, // Modified to store only one role per user
+      enum: ["user", "member", "admin", "core", "coordinator"],
+      default: "user", // Default role is 'user'
     },
     avatar: {
       type: String,
@@ -61,7 +61,6 @@ userSchema.pre("save", async function (next) {
   // Assign a default avatar if none is provided
   if (!this.avatar || this.avatar === "") {
     this.avatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(this.name)}&background=random&length=1`;
-      
   }
 
   next();
@@ -78,6 +77,7 @@ userSchema.methods.generateAccessToken = function () {
     {
       _id: this._id,
       email: this.email,
+      role: this.membertype, // Including role in token for easy role checks
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
