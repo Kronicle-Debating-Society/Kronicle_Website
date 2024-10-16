@@ -136,8 +136,29 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 const updateUser = asyncHandler(async (req, res) => {
+  const { igLink, linkedLink, githubLink } = req.body;
+  const userId = req.user._id; // assuming user is authenticated and req.user contains the user info
   
+  let user = await User.findById(userId);
+
+  if (!user) {
+    throw new ApiError(404 ,"user not found in Database")
+  }
+
+  // Update fields if they exist in the request body
+  if (igLink) user.igLink = igLink;
+  if (linkedLink) user.linkedLink = linkedLink;
+  if (githubLink) user.githubLink = githubLink;
+
+  const updatedUser = await user.save();
+  if (!updatedUser) {
+    throw new ApiError(500, "Something went wrong while updating user");
+  }
+  res.status(200).json(
+  new  ApiResponse(200, updateUser,"user updated successfully")
+  );
 });
+
 const refreshAccessToken = asyncHandler(async (req, res) => {
 try {
     const incomingRefreshToken =

@@ -15,9 +15,12 @@ router.route("/register").post(
   registerUser
 );
 router.route("/login").post(loginUser);
-
-//securefileds access only after login
-router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/refresh-token").post(refreshAccessToken);
+
+
+//securefileds access only after login verifyJWT is used to check whether the user is loggedIn or not 
+
+router.route("/logout").post(verifyJWT, logoutUser);
+router.route("/update").post(verifyJWT, updateUser);
 
 export default router;
