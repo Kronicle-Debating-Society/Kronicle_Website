@@ -3,6 +3,8 @@ import { ApiError } from "../utils/apiError.js";
 import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 import jwt from "jsonwebtoken";
+import mongoose from "mongoose";
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const generateTokens = async (userId) => {
   try {
@@ -23,7 +25,7 @@ const generateTokens = async (userId) => {
 };
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, profilePic, membertype } = req.body;
+  const { name, email, password, membertype } = req.body;
 
   // Validate user input
   if (!name || !email || !password) {
@@ -36,15 +38,26 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "User already exists with this email");
   }
 
+  // Initialize avatar variables
+  let avatarLocalPath = "";
+  let avatar = { url: "" }; // Default empty avatar
+
+  // Handle file upload if a file is provided
+  if (req.file && req.file.path) {
+    avatarLocalPath = req.file.path;
+    avatar = await uploadOnCloudinary(avatarLocalPath);
+  }
+
   // Create the user
   const user = await User.create({
-    name,
-    email,
-    password, // Assuming hashing is done in the model
     name: name.toLowerCase(),
-    membertype: membertype,
+    email,
+    password, // Assuming password hashing is done in the model
+    membertype,
+    avatar: avatar.url || "",  // Default to empty string if no file is uploaded
   });
 
+  // Fetch the created user excluding sensitive fields
   const createdUser = await User.findById(user._id).select(
     "-password -refreshToken"
   );
@@ -57,6 +70,7 @@ const registerUser = asyncHandler(async (req, res) => {
     .status(201)
     .json(new ApiResponse(201, createdUser, "User registered successfully"));
 });
+
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -138,11 +152,11 @@ const logoutUser = asyncHandler(async (req, res) => {
 const updateUser = asyncHandler(async (req, res) => {
   const { igLink, linkedLink, githubLink } = req.body;
   const userId = req.user._id; // assuming user is authenticated and req.user contains the user info
-  
+
   let user = await User.findById(userId);
 
   if (!user) {
-    throw new ApiError(404 ,"user not found in Database")
+    throw new ApiError(404, "user not found in Database");
   }
 
   // Update fields if they exist in the request body
@@ -154,16 +168,16 @@ const updateUser = asyncHandler(async (req, res) => {
   if (!updatedUser) {
     throw new ApiError(500, "Something went wrong while updating user");
   }
-  res.status(200).json(
-  new  ApiResponse(200, updateUser,"user updated successfully")
-  );
+  res
+    .status(200)
+    .json(new ApiResponse(200, updateUser, "user updated successfully"));
 });
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
-try {
+  try {
     const incomingRefreshToken =
       req.cookies.refreshToken || req.body.refreshToken;
-  
+
     if (!incomingRefreshToken) {
       throw new ApiError(401, "unauthorized request");
     }
@@ -178,13 +192,13 @@ try {
     if (incomingRefreshToken !== user?.refreshToken) {
       throw new ApiError(401, "Refresh Token Expired");
     }
-  
+
     const options = {
       httpOnly: true,
       secure: true,
     };
     const { accessToken, newRefreshToken } = await generateTokens(user._id);
-  
+
     return res
       .status(200)
       .cookie("accessToken", accessToken, options)
@@ -196,8 +210,8 @@ try {
           "tokens refreshed"
         )
       );
-} catch (error) {
-  throw new ApiError (401, error?.message || "invalid token")
-}
+  } catch (error) {
+    throw new ApiError(401, error?.message || "invalid token");
+  }
 });
-export { registerUser, loginUser, logoutUser, updateUser,refreshAccessToken };
+export { registerUser, loginUser, logoutUser, updateUser, refreshAccessToken };
