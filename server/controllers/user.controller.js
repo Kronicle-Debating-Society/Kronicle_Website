@@ -3,7 +3,6 @@ import { ApiError } from "../utils/apiError.js";
 import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 import jwt from "jsonwebtoken";
-import mongoose from "mongoose";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const generateTokens = async (userId) => {
