@@ -53,7 +53,7 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password, // Assuming password hashing is done in the model
     membertype,
-    avatar: avatar.url || "",  // Default to empty string if no file is uploaded
+    avatar: avatar.url || "", // Default to empty string if no file is uploaded
   });
 
   // Fetch the created user excluding sensitive fields
@@ -69,7 +69,6 @@ const registerUser = asyncHandler(async (req, res) => {
     .status(201)
     .json(new ApiResponse(201, createdUser, "User registered successfully"));
 });
-
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -213,4 +212,47 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
     throw new ApiError(401, error?.message || "invalid token");
   }
 });
-export { registerUser, loginUser, logoutUser, updateUser, refreshAccessToken };
+
+const showUser = asyncHandler(async (req, res) => {
+  const user = req.user;
+  if (!user) {
+    throw new ApiError(400, "user does not exist");
+  }
+  return res
+    .status(200)
+    .json(new ApiResponse(200, { user }, "user shown succesfully"));
+});
+
+const changePassword = asyncHandler(async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+  if (!oldPassword || !newPassword) {
+    throw new ApiError(400, "All fields are required");
+  }
+
+  // Fetch the user by ID
+  const user = await User.findById(req.user._id);
+
+  // Check if the old password is correct
+  const isPasswordCorrect = await user.isPasswordCorrect(oldPassword);
+  if (!isPasswordCorrect) {
+    throw new ApiError(400, "Invalid old password");
+  }
+
+  // Update password and hash it
+  user.password = newPassword; // hashing is done in the User model's pre-save hook
+  await user.save();
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, {}, "Password changed successfully"));
+});
+
+export {
+  registerUser,
+  loginUser,
+  logoutUser,
+  updateUser,
+  refreshAccessToken,
+  showUser,
+  changePassword,
+};
