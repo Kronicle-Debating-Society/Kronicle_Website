@@ -21,12 +21,7 @@ const eventSchema = new mongoose.Schema(
       required: true,
       default: 0,
       min: 0,
-      validate: {
-        validator: function (value) {
-          return value.toFixed(2) === value.toString();
-        },
-        message: "regCost must have up to two decimal places",
-      },
+    
     },
     date: {
       type: Date,
