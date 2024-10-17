@@ -28,8 +28,11 @@ app.get("/", (req, res) => {
 //routes import 
 import userRouter from "./routes/user.routes.js"
 import eventRouter from "./routes/event.routes.js"
+import achivementRouter from "./routes/achievement.routes.js"
 
 // routes declare
 app.use( "/api/v1/users",userRouter)  // prefix
 app.use("/api/v1/events",eventRouter)
+app.use("/api/v1/achievements",achivementRouter)
+
 export { app };
