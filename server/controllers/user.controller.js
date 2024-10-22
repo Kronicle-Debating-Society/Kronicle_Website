@@ -247,6 +247,49 @@ const changePassword = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, {}, "Password changed successfully"));
 });
 
+const showEventHistory = asyncHandler(async (req, res) => {
+  const user = await db.User.aggregate([
+    {
+      $lookup: {
+        from: "events",
+        localField: "eventHistory",
+        foreignField: "_id",
+        as: "details",
+      },
+    },
+    {
+      $addFields: {
+        eventNames: {
+          $map: {
+            input: "$details",
+            as: "event",
+            in: "$$event.title",
+          },
+        },
+        eventPic: {
+          $map: {
+            input: "$details",
+            as: "event",
+            in: "$$event.thumbnail", // Assuming it's 'thumbnail'
+          },
+        },
+      },
+    },
+    {
+      $project: {
+        name: 1, // Project the user's name
+        email: 1, // Project the user's email
+        eventNames: 1, // Include the event names
+        eventPic: 1, // Include the event thumbnails
+      },
+    },
+  ]);
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, { user }, "Event history shown successfully"));
+});
+
 export {
   registerUser,
   loginUser,
@@ -255,4 +298,5 @@ export {
   refreshAccessToken,
   showUser,
   changePassword,
+  showEventHistory,
 };

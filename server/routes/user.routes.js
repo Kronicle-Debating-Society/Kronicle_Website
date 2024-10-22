@@ -22,7 +22,7 @@ router.route("/refresh-token").post(refreshAccessToken);
 //securefileds access only after login verifyJWT is used to check whether the user is loggedIn or not
 
 router.route("/logout").post(verifyJWT, logoutUser);
-router.route("/update").post(verifyJWT, updateUser);
+router.route("/update").patch(verifyJWT, updateUser);
 router.route("/show-user").get(verifyJWT, showUser);
-router.route("/change-password").post(verifyJWT, changePassword);
+router.route("/change-password").patch(verifyJWT, changePassword);
 export default router;
