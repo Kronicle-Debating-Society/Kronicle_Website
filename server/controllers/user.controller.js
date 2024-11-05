@@ -248,7 +248,10 @@ const changePassword = asyncHandler(async (req, res) => {
 });
 
 const showEventHistory = asyncHandler(async (req, res) => {
-  const user = await db.User.aggregate([
+  const user = await User.aggregate([
+    {
+      $match: { _id: req.user._id }, // Match the logged-in user
+    },
     {
       $lookup: {
         from: "events",

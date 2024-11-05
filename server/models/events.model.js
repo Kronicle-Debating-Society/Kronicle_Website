@@ -38,7 +38,7 @@ const eventSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    customQuestion: [{ type: String }],
+    customQuestions: [{ type: String }], // Updated to plural
   },
   { timestamps: true }
 );
