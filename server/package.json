@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "kronicle website",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,10 +14,19 @@
   "license": "ISC",
   "dependencies": {
     "async": "^3.1.0",
+<<<<<<< HEAD
     "axios": "^1.7.9",
+=======
+    "bcrypt": "^5.1.1",
+    "cloudinary": "^2.5.1",
+    "cookie-parser": "^1.4.7",
+>>>>>>> 4d9f1d74def37de25f141af8bc60e6cdfcb4b5ff
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.0",
+    "mongoose-aggregate-paginate-v2": "^1.1.2",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.7"
   }
