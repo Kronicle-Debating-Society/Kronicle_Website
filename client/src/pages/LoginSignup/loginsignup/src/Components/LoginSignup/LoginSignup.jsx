@@ -1,5 +1,10 @@
 import React from 'react'
-import './Loginsignup.css'
+import './LoginSignup.css'
+import password_icon from 'C:\Users\KIIT0001\Desktop\debating\Kronicle_Website\client\src\pages\LoginSignup\loginsignup\src\Components\assets\password1.png'
+import email_icon from'Kronicle_Website/client/src/pages/LoginSignup/loginsignup/src/Components/assets/mailid.png'
+
+import user_icon from 'Kronicle_Website/client/src/pages/LoginSignup/loginsignup/src/Components/assets/usericon.png'
+
 
 const LoginSignup = () => {
   return (
