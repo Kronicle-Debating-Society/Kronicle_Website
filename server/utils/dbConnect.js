@@ -6,7 +6,7 @@ dotenv.config();
 
 const DB_NAME = "production";
 const connectDB = async () => {
-  try {
+  try { 
 
     const mongoURI = process.env.MONGODB_URI.endsWith("/")
     ? `${process.env.MONGODB_URI}${DB_NAME}`
