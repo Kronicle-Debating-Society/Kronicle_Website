@@ -16,6 +16,8 @@ const Navbar = () => {
                 <li><a href="/Members">Members</a></li>  
                 <li><a href="#achievements">Achievements</a></li>
                 <li><a href="/Events">Events</a></li>
+                <li><a href="/login" className="login-link">Login</a></li>
+                <li><a href="/signup" className="signup-link">Signup</a></li> 
             </ul>
         </nav>
     );

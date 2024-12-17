@@ -56,3 +56,20 @@ body {
 .nav-links li a:hover {
     text-decoration: underline;
 }
+
+.login-link {
+    position: absolute;
+    color: #007BFF;
+    font-weight: bold;
+    right: 280px;
+    top: 120px;
+}
+
+.signup-link {
+
+    color: #28a745; 
+    font-weight: bold;
+    position: absolute;
+    top: 120px;
+    right: 180px;
+}
