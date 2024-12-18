@@ -53,14 +53,14 @@ body {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    padding: 8px 12px; /* Add padding for better clickability */
+    padding: 8px 12px; 
     transition: all 0.3s ease; /* Smooth hover effect */
 }
 
 /* Hover Effect */
 .nav-links li a:hover {
-    color: #00d1b2; /* Change text color on hover */
-    text-decoration: underline; /* Add underline effect */
+    color: #00d1b2; 
+    text-decoration: underline; 
 }
 
 /* Signup Link Styling */
