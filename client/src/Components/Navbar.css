@@ -24,35 +24,67 @@ body {
 .logo-container {
     display: flex;
     align-items: center;
+    gap: 10px; /* Space between logos */
+    margin-right: 20px;
+    margin-top: 2px;
 }
 
-/* Logo Styling - Remove quotes from width */
+/* Logo Styling */
 .logo {
-    width: 100%; /* Adjust based on your image size */
-    max-width: 150px; /* Set a max-width if needed */
-    margin-right: 10px;
+    width: 100%; 
+    max-width: 120px; 
+    object-fit: contain
 }
 
 /* Nav Links Styling */
+
 .nav-links {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    list-style-type: none; /* Remove default list styles */
     display: flex;
+    align-items: center;
+    gap: 30px; /* Space out links */
+    margin: 0; /* Remove unnecessary margins */
+    padding: 0;
 }
 
-/* Individual Nav Links */
-.nav-links li {
-    margin-left: 30px;
-}
-
+/* Individual Links */
 .nav-links li a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 12px; 
+    transition: all 0.3s ease; /* Smooth hover effect */
 }
 
-/* Hover Effect for Nav Links */
+/* Hover Effect */
 .nav-links li a:hover {
-    text-decoration: underline;
+    color: #00d1b2; 
+    text-decoration: underline; 
+}
+
+/* Signup Link Styling */
+
+.login-link {
+    color: #28a745;
+    border: 2px solid #28a745;
+    border-radius: 5px;
+    padding: 6px 12px; 
+    font-weight: bold;
+    margin-right: 110px;
+    transition: all 0.3s ease;
+}
+
+.login-link:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 10px; 
+    }
 }

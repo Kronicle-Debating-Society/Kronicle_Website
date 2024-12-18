@@ -24,6 +24,7 @@ const generateTokens = async (userId) => {
 };
 
 const registerUser = asyncHandler(async (req, res) => {
+  console.log("Request Body:", req.body);
   const { name, email, password, membertype } = req.body;
 
   // Validate user input

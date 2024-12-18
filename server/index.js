@@ -16,3 +16,4 @@ connectDB() // returns a promise that is why use then and catch
   .catch((err) => {
     console.log("MONGO db connection failed !!! ", err);
   });
+ 
