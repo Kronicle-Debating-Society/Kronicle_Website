@@ -27,15 +27,10 @@ const Signup = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
 
-      console.log("Form Data Sent:", formData);
-  
-
       try {
         const formData = { name: formData.name, email: formData.email, password: formData.password };
   
-        const response = await axios.post   (`${process.env.REACT_URL}/users/register`, formData,
-          {
-        headers: { "Content-Type": "application/json" },});
+        const response = await axios.post   (`${process.env.REACT_URL}/users/register`, formData);
 
         setMessage(response.data.message);
       } 
