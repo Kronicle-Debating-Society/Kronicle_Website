@@ -1,7 +1,7 @@
 
 .container {
     background-image: url('./assets/backgroundpage.png'); 
-    background-size: cover;
+    background-size: 150%;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh; 
@@ -30,7 +30,7 @@ align-items: center;
 }
 
 .text {
-margin-right: 1020px;
+margin-right: 910px;
 margin-top: 300px}
 
 
@@ -39,7 +39,7 @@ margin-top: 300px}
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-right: 900px;
+    margin-right: 840px;
 }
 .input{
     display: flex;
@@ -98,7 +98,7 @@ margin-top: 300px}
     border-radius: 30px;
     font-size: 25px;
     font-weight:700;
-    left: 90px;
+    left: 100px;
     cursor:pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -221,3 +221,12 @@ margin-top: 300px}
   .submit-button:hover {
     background-color: #5050e3;
   }
+
+  @media (max-width: 768px) {
+    .container {
+        background-size: contain; /* Use contain on smaller screens to avoid cropping */
+    }
+}
+
+
+  

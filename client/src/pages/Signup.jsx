@@ -14,7 +14,6 @@ import p1 from './assets1/p1.png';
 import p2 from './assets1/p2.png';
 import p3 from './assets1/p3.png';
 
-
 const Signup = () => {
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
     const [message, setMessage] = useState('');
@@ -39,6 +38,7 @@ const Signup = () => {
         setMessage(error.response?.data?.message || 'An error occurred. Please try again.');
       }
     };
+
 
   return (
     <div className="images">
