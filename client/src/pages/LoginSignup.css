@@ -31,7 +31,7 @@ align-items: center;
 
 .text {
 margin-right: 1020px;
-margin-top: 200px}
+margin-top: 300px}
 
 
 .inputs{
@@ -98,11 +98,11 @@ margin-top: 200px}
     border-radius: 30px;
     font-size: 25px;
     font-weight:700;
-    left: 145px;
+    left: 90px;
     cursor:pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
+    bottom: 25px;
 }
 .submit2{
     position: absolute;
@@ -114,7 +114,7 @@ margin-top: 200px}
 .toggle-text {
     position: absolute;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 16px;
     color: #555;
     top:120px;
@@ -190,8 +190,8 @@ margin-top: 200px}
 }
 .forgot-password{
     position: absolute;
-    left: 380px;
-    bottom: 73px;
+    left: 330px;
+    bottom: 45px;
     cursor:pointer;
 }
 .forgot-password span:hover {
