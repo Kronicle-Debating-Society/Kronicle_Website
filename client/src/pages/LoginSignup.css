@@ -193,6 +193,7 @@ margin-top: 300px}
     left: 330px;
     bottom: 45px;
     cursor:pointer;
+    color: #fff;
 }
 .forgot-password span:hover {
     text-decoration: underline;
