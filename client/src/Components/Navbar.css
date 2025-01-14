@@ -45,6 +45,7 @@ body {
     gap: 30px; /* Space out links */
     margin: 0; /* Remove unnecessary margins */
     padding: 0;
+    margin-right: 150px;
 }
 
 /* Individual Links */
@@ -65,26 +66,35 @@ body {
 
 /* Signup Link Styling */
 
-.login-link {
-    color: #28a745;
-    border: 2px solid #28a745;
-    border-radius: 5px;
-    padding: 6px 12px; 
-    font-weight: bold;
-    margin-right: 110px;
-    transition: all 0.3s ease;
-}
-
-.login-link:hover {
-    background-color: #28a745;
+/* Button Styling for Login/Logout */
+.login-button, .logout-button {
+    background-color:rgb(0, 81, 255);
     color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Responsive Design */
+/* Hover Effect for Buttons */
+.login-button:hover, .logout-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Focus Effect for Buttons */
+.login-button:focus, .logout-button:focus {
+    outline: none;
+    border: 2px solid #00d1b2;
+}
+
 @media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 10px; 
+    .login-button, .logout-button {
+        width: 100%; 
+        padding: 12px 20px; 
     }
 }
+
