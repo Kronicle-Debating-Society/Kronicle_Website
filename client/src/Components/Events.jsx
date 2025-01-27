@@ -19,131 +19,32 @@ const Events = () => {
                 </div>
             </section>
 
-            <div className="bg-black text-white p-6 font-sans">
-                {/* Recruitment Section */}
+            {/* Coming Soon Section */}
+            <div
+                className="flex items-center justify-center font-sans"
+                style={{
+                    marginTop: '250px',
+                    marginBottom: '250px',
+                }}
+            >
                 <div
-                    className="flex flex-col items-center justify-center w-[512px] h-[198px] p-6 rounded-lg mx-auto"
+                    className="flex flex-col items-center justify-center h-[50vh] w-[50vw] rounded-lg"
                     style={{
-                        backgroundImage: "url('https://ik.imagekit.io/shubhusarathy/event-container.png?updatedAt=1730142330620')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
+                        backgroundColor: '#444', // Muted dark gray background
+                        border: '2px solid #888', // Subtle gray border
+                        padding: '30px',
+                        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.6)', // Soft shadow
                     }}
                 >
-                    <h2 className="text-2xl font-bold mb-2 text-left w-full">RECRUITMENT</h2>
-                    <div className="flex items-center justify-between w-full">
-                        <p className="flex-1 mr-2 text-sm text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <div className="w-24 h-24 overflow-hidden rounded-md">
-                            <img
-                                src="https://ik.imagekit.io/shubhusarathy/image.png?updatedAt=1730174901334"
-                                alt="Recruitment"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                    <span className="text-left mt-2 w-full">( Recruitment Results )</span>
-                </div>
-
-                {/* Pratijja Section */}
-                <div
-                    className="flex flex-col items-center justify-center w-[512px] h-[198px] p-6 rounded-lg mx-auto"
-                    style={{
-                        backgroundImage: "url('https://ik.imagekit.io/shubhusarathy/event2-container.png?updatedAt=1730173980636')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                >
-                    <h2 className="text-2xl font-bold mb-4 text-right w-full">PRATIJJA</h2>
-                    <div className="flex items-center justify-between w-full">
-                        <div className="w-24 h-24 overflow-hidden rounded-md text-left">
-                            <img
-                                src="https://ik.imagekit.io/shubhusarathy/image.png?updatedAt=1730202907977"
-                                alt="Pratijja"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        <p className="flex-1 mr-1 text-sm text-right">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-                    <span className="mt-2 inline-block text-right w-full">( Past Winners )</span>
-                </div>
-
-                {/* Founder's Cup Section */}
-                <div
-                    className="flex flex-col items-center justify-center w-[512px] h-[198px] p-6 rounded-lg mx-auto"
-                    style={{
-                        backgroundImage: "url('https://ik.imagekit.io/shubhusarathy/event3-cotainer.png?updatedAt=1730174345589')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                >
-                    <h2 className="text-2xl font-bold mb-2 text-left w-full">FOUNDER'S CUP</h2>
-                    <div className="flex items-center justify-between w-full">
-                        <p className="flex-1 mr-2 text-sm text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <div className="w-24 h-24 overflow-hidden rounded-md">
-                            <img
-                                src="https://ik.imagekit.io/shubhusarathy/image(1).png?updatedAt=1730203074773"
-                                alt="Founder's Cup"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                    <span className="text-left mt-2 w-full">( Past Winners )</span>
-                </div>
-
-                {/* Vivaad Section */}
-                <div
-                    className="flex flex-col items-center justify-center w-[512px] h-[198px] p-6 rounded-lg mx-auto"
-                    style={{
-                        backgroundImage: "url('https://ik.imagekit.io/shubhusarathy/event2-container.png?updatedAt=1730173980636')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                >
-                    <h2 className="text-2xl font-bold mb-4 text-right w-full">VIVAAD</h2>
-                    <div className="flex items-center justify-between w-full">
-                        <div className="w-24 h-24 overflow-hidden rounded-md text-left">
-                            <img
-                                src="https://ik.imagekit.io/shubhusarathy/image(2).png?updatedAt=1730203527495"
-                                alt="Vivaad"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                        <p className="flex-1 mr-1 text-sm text-right">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                    </div>
-                    <span className="mt-2 inline-block text-right w-full">( Past Winners )</span>
-                </div>
-
-                {/* Devil's Advocate Section */}
-                <div
-                    className="flex flex-col items-center justify-center w-[512px] h-[198px] p-6 rounded-lg mx-auto"
-                    style={{
-                        backgroundImage: "url('https://ik.imagekit.io/shubhusarathy/event3-cotainer.png?updatedAt=1730174345589')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                >
-                    <h2 className="text-2xl font-bold mb-2 text-left w-full">DEVIL'S ADVOCATE</h2>
-                    <div className="flex items-center justify-between w-full">
-                        <p className="flex-1 mr-2 text-sm text-left">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
-                        <div className="w-24 h-24 overflow-hidden rounded-md">
-                            <img
-                                src="https://ik.imagekit.io/shubhusarathy/image(3).png?updatedAt=1730203676851"
-                                alt="Founder's Cup"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
-                    <span className="text-left mt-2 w-full">( Past Winners )</span>
-                    <span className="text-right mt-2 w-full">Follow for more</span>
+                    <h2
+                        className="text-center text-9xl font-bold uppercase font-style: italic"
+                        style={{
+                            color: '#d4d4d4', // Soft, light gray text
+                            letterSpacing: '2px', 
+                        }}
+                    >
+                        Coming Soon!
+                    </h2>
                 </div>
             </div>
         </div>
