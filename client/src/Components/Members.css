@@ -1,0 +1,269 @@
+/* Members Page Styling */
+.members-page {
+    background-color: #000; /* Dark background */
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Heading Section */
+.heading-section {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ccc; /* Light grey color */
+    margin: 0;
+}
+
+.underline {
+    width: 150px;
+    height: 4px;
+    background-color: #ccc; /* Light grey color */
+    margin: 10px auto 0;
+}
+
+/* Carousel Section Styling */
+.container {
+    padding: 0;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+}
+
+.slider img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    width: 100vw;
+    height: 80vh;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+/* Facecard Section */
+.facecard-section {
+    display: flex;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 100px; /* Space between the cards */
+    margin-top: 20px; /* Add some space above the facecards */
+}
+
+/* Facecard Section */
+.facecard {
+    width: auto;
+    height: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; /* Enable positioning context for ellipses */
+}
+
+.facecard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fits the card nicely */
+    border-radius: 10px; /* Optional: Match the border radius of the card */
+}
+
+/* Ellipse Icons */
+.ellipses {
+    position: absolute;  /* Absolute positioning relative to the facecard */
+    bottom: 10px;        /* 10px from the bottom of the facecard */
+    left: 10px;          /* 10px from the left of the facecard */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 2;          /* Ensure ellipses are above the background */
+}
+
+.ellipses img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+/* Kronicle Logo */
+.kronicle-logo {
+    position: absolute;  /* Position relative to the facecard-bg-wrapper */
+    top: 0px;
+    right: 0px;
+    width: 40px;         /* Exact width */
+    height: 40px;        /* Exact height */
+    max-width: 40px;     /* Force maximum width */
+    max-height: 40px;    /* Force maximum height */
+    object-fit: contain; /* Maintain aspect ratio */
+    display: block;      /* Prevent logo from expanding as an inline element */
+    z-index: 1;
+}
+
+.overlay-image {
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 50%; /* Center vertically */
+    left: 60%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 72% !important; /* Force the width */
+    max-width: 230px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-priyanshu {
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 48%; /* Center vertically */
+    left: 52%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100% !important; /* Force the width */
+    max-width: 270px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-aadit {
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 57%; /* Center vertically */
+    left: 60%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100% !important; /* Force the width */
+    max-width: 220px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-bhumika {
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 57%; /* Center vertically */
+    left: 60%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100% !important; /* Force the width */
+    max-width: 220px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-jay {
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 57%; /* Center vertically */
+    left: 60%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100% !important; /* Force the width */
+    max-width: 220px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-manavi {
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 55%; /* Center vertically */
+    left: 60%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100% !important; /* Force the width */
+    max-width: 220px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-om {
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 55%; /* Center vertically */
+    left: 63%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 70% !important; /* Force the width */
+    max-width: 200px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-soham{
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 58%; /* Center vertically */
+    left: 55%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100% !important; /* Force the width */
+    max-width: 220px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-vipul{
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 57%; /* Center vertically */
+    left: 57%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100% !important; /* Force the width */
+    max-width: 220px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.overlay-vishesh{
+    position: absolute; /* Absolute positioning within the facecard container */
+    top: 60%; /* Center vertically */
+    left: 57%; /* Move slightly to the right */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    width: 100% !important; /* Force the width */
+    max-width: 220px; /* Add a maximum width constraint */
+    height: auto !important; /* Ensure height scales proportionally */
+    z-index: 3; /* Ensure the overlay image appears above other elements */
+    pointer-events: none; /* Prevent interaction with the overlay image */
+}
+
+.name-label {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    font-size: 25px; /* Adjust for desired text size */
+    color: white; /* Ensure readability over the background */
+    z-index: 4; /* Ensure it appears above other elements */
+    padding: 5px 10px; /* Optional: Add padding around the text */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
