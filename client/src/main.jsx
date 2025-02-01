@@ -1,16 +1,15 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
-import "./index.css";
-import Navbar from "./Components/Navbar.jsx";
-import Footer from "./Components/Footer.jsx";
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom'; // Import Router
+import App from './App.jsx';
+import './index.css';
 
-// Rendering the App with Navbar
-const root = createRoot(document.getElementById("root"));
+// Rendering the App inside Router
+const root = createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <Navbar />
-    <App />
-    <Footer />
+    <Router> {/* Wrap App in Router */}
+      <App />
+    </Router>
   </StrictMode>
 );

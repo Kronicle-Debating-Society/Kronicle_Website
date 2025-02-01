@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    padding-top: 10px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .left-section {
+    width: 30%;
+    color: white;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    background-color: #1a1a1a; /* Darker background for contrast */
+  }
+
+  .left-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .left-section ul {
+    list-style-type: none;
+  }
+
+  .left-section li {
+    margin-bottom: 10px;
+  }
+
+  .left-section button {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .left-section button:hover {
+    background-color: #848484;
+  }
+
+  .right-section {
+    width: 70%;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    background-color: #121212; /* Darker background for right section */
+  }
+
+  .image-div {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-image {
+    width: 120px;
+    height: 120px;
+    border: solid 2px #ddd; /* Thicker border for better visibility */
+    border-radius: 50%;
+    background-color: #fff; /* White background for the image */
+  }
+
+  .user-name {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .user-email {
+    margin-bottom: 20px;
+  }
+
+  .user-email h4 {
+    margin-bottom: 5px;
+  }
+
+  .events-participated {
+    border: solid white 0.5px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  }
+
+  .events-participated h4 {
+    margin-bottom: 10px;
+  }
+
+  .events-participated ul {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0 ;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .events-participated li {
+    background-color: #848484;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #000000;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto; /* Allow height to adjust based on content */
+    }
+
+    .left-section, .right-section {
+      width: 100%; /* Full width on smaller screens */
+      border-right: none; /* Remove border on smaller screens */
+    }
+
+    .left-section {
+      padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .right-section {
+      padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .user-image {
+      width: 100px; /* Smaller image on mobile */
+      height: 100px; /* Smaller image on mobile */
+    }
+
+    .left-section button {
+      padding: 8px; /* Smaller button padding on mobile */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .left-section h2 {
+      font-size: 20px; /* Smaller font size for mobile */
+    }
+
+    .left-section button {
+      font-size: 14px; /* Smaller button text on mobile */
+    }
+
+    .user-name h3 {
+      font-size: 18px; /* Smaller name font size on mobile */
+    }
+
+    .user-email h4 {
+      font-size: 16px; /* Smaller email label font size on mobile */
+    }
+
+    .events-participated h4 {
+      font-size: 16px; /* Smaller events title font size on mobile */
+    }
+  }

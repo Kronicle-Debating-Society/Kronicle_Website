@@ -1,14 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import Navbar from './Components/Navbar.jsx' 
-import './index.css'
-import Footer from './Components/Footer.jsx'
+/*import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
 
-createRoot(document.getElementById('root')).render(
+// Rendering the App
+const root = createRoot(document.getElementById('root'));
+root.render(
   <StrictMode>
-    <Navbar/>
     <App />
- <Footer/>
-  </StrictMode>,
-)
+  </StrictMode>
+);
+*/
