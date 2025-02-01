@@ -51,6 +51,7 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/Members">Members</Link></li>
         <li><Link to="/Events">Events</Link></li>
+        <li><Link to="/profile">Profile</Link></li>
         <li>
         {isAuthenticated ? (
     

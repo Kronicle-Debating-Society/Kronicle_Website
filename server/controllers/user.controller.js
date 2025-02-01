@@ -169,7 +169,7 @@ const updateUser = asyncHandler(async (req, res) => {
   }
   res
     .status(200)
-    .json(new ApiResponse(200, updateUser, "user updated successfully"));
+    .json(new ApiResponse(200, updatedUser, "user updated successfully"));
 });
 
 const refreshAccessToken = asyncHandler(async (req, res) => {

@@ -33,15 +33,21 @@ const Login = () => {
         try {
             const response = await axios.post(`${API_URL}/users/login`, formData);
             console.log('API response:', response.data);
-            const { token } = response.data;
-            if (token) {
-                localStorage.setItem('authToken', token); 
-                console.log('Token saved to localStorage:', token); 
-                navigate('/dashboard'); 
+
+            const { data } = response.data;
+            if (data && data.accessToken && data.user) {
+            const { accessToken,user} = data;
+                localStorage.setItem('authToken', accessToken); 
+               
+                console.log('Stored authToken:', localStorage.getItem('authToken'));
+                localStorage.setItem('user', JSON.stringify(user));
+                console.log('Stored user:', localStorage.getItem('user'));
+                console.log('Login successful. User:', user);
+                navigate('/'); 
               } else {
-                console.error('No token in response');
+                console.error('Login response missing token or user');
               }
-           
+            
         } 
         catch (error) {
           console.error('Error:', error);
@@ -85,7 +91,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="forgot-password">
-                        <span onClick={() => navigate('/forgot-password')}>Forgot Password?</span>
+                        <span onClick={() => navigate('/ResetPassword')}>Forgot Password?</span>
                     </div>
                     {message && <p className="message">{message}</p>}
                     <div className="submit-container">
